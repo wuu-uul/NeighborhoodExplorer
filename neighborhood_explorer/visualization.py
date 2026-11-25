@@ -48,15 +48,15 @@ def _arrow_polygon(
             start,
         ]
     elif gene.strand == "-":
-        # 负链箭头朝左，与正链使用镜像的多边形顶点顺序。
+        # 将正链箭头沿基因中点镜像，确保负链箭头头部上下对称。
         head_length = min(max(length * 0.25, 1.0), length * 0.45)
         x_values = [
-            start + head_length,
-            end,
             end,
             start + head_length,
             start,
             start + head_length,
+            end,
+            end,
         ]
     y_values = [
         center_y - half_height,
