@@ -36,13 +36,13 @@ python -m pip install -r requirements.txt
 ## 快速开始
 
 ```powershell
-python -m gene --input genome.gbk --target ABC_0001 --num 5 --output results/neighborhood
+python -m neighborhood_explorer --input genome.gbk --target ABC_0001 --num 5 --output results/neighborhood
 ```
 
 也可以使用短参数：
 
 ```powershell
-python -m gene -i genome.gbk -t ABC_0001 -n 5 -o results/neighborhood
+python -m neighborhood_explorer -i genome.gbk -t ABC_0001 -n 5 -o results/neighborhood
 ```
 
 运行成功后会生成：
@@ -68,13 +68,13 @@ results/
 例如，只提取目标 CDS 本身：
 
 ```powershell
-python -m gene -i genome.gbk -t ABC_0001 -n 0 -o results/target_only
+python -m neighborhood_explorer -i genome.gbk -t ABC_0001 -n 0 -o results/target_only
 ```
 
 查看完整参数说明：
 
 ```powershell
-python -m gene --help
+python -m neighborhood_explorer --help
 ```
 
 ## 输出说明
@@ -110,9 +110,9 @@ GenBank 记录编号。目标基因以红色高亮，图例说明链方向颜色
 ## 项目结构
 
 ```text
-gene/
+neighborhood_explorer/
 ├── __init__.py       # 包信息
-├── __main__.py       # python -m gene 入口
+├── __main__.py       # python -m neighborhood_explorer 入口
 ├── cli.py            # 命令行参数与完整执行流程
 ├── extractor.py      # GenBank 解析及邻域提取
 ├── report.py         # TSV 报告生成
@@ -142,9 +142,9 @@ GenBank 记录提取基因。
 除了命令行，也可以在 Python 代码中调用提取器和报告函数：
 
 ```python
-from gene.extractor import NeighborhoodExtractor
-from gene.report import write_tsv_report
-from gene.visualization import write_html_visualization
+from neighborhood_explorer.extractor import NeighborhoodExtractor
+from neighborhood_explorer.report import write_tsv_report
+from neighborhood_explorer.visualization import write_html_visualization
 
 genes = NeighborhoodExtractor("genome.gbk").extract("ABC_0001", num=5)
 write_tsv_report(genes, "results/neighborhood")

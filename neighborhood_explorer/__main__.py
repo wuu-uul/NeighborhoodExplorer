@@ -1,4 +1,4 @@
-"""支持通过 ``python -m gene`` 启动命令行工具。"""
+"""支持通过 ``python -m neighborhood_explorer`` 启动命令行工具。"""
 
 from .cli import main
 

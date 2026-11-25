@@ -41,13 +41,13 @@ python -m pip install -r requirements.txt
 ## Quick start
 
 ```powershell
-python -m gene --input genome.gbk --target ABC_0001 --num 5 --output results/neighborhood
+python -m neighborhood_explorer --input genome.gbk --target ABC_0001 --num 5 --output results/neighborhood
 ```
 
 Short options are also available:
 
 ```powershell
-python -m gene -i genome.gbk -t ABC_0001 -n 5 -o results/neighborhood
+python -m neighborhood_explorer -i genome.gbk -t ABC_0001 -n 5 -o results/neighborhood
 ```
 
 On success, the tool creates:
@@ -73,13 +73,13 @@ the prefix defaults to `result` in the current directory.
 To extract only the target CDS, set the flank size to zero:
 
 ```powershell
-python -m gene -i genome.gbk -t ABC_0001 -n 0 -o results/target_only
+python -m neighborhood_explorer -i genome.gbk -t ABC_0001 -n 0 -o results/target_only
 ```
 
 For all available options:
 
 ```powershell
-python -m gene --help
+python -m neighborhood_explorer --help
 ```
 
 ## Output files
@@ -123,9 +123,9 @@ highlighted in red, and the legend explains strand colors.
 ## Project structure
 
 ```text
-gene/
+neighborhood_explorer/
 ├── __init__.py       # Package metadata
-├── __main__.py       # Entry point for python -m gene
+├── __main__.py       # Entry point for python -m neighborhood_explorer
 ├── cli.py            # Command-line arguments and application workflow
 ├── extractor.py      # GenBank parsing and neighborhood extraction
 ├── report.py         # TSV report generation
@@ -158,9 +158,9 @@ location.
 The extractor and report functions can also be used from Python:
 
 ```python
-from gene.extractor import NeighborhoodExtractor
-from gene.report import write_tsv_report
-from gene.visualization import write_html_visualization
+from neighborhood_explorer.extractor import NeighborhoodExtractor
+from neighborhood_explorer.report import write_tsv_report
+from neighborhood_explorer.visualization import write_html_visualization
 
 genes = NeighborhoodExtractor("genome.gbk").extract("ABC_0001", num=5)
 write_tsv_report(genes, "results/neighborhood")
