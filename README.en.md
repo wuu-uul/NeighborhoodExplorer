@@ -40,6 +40,8 @@ python -m pip install -r requirements.txt
 
 ## Quick start
 
+New to PowerShell? See the [Windows step-by-step guide in Chinese](docs/使用指南.md).
+
 ```powershell
 python -m neighborhood_explorer --input genome.gbk --target ABC_0001 --num 5 --output results/neighborhood
 ```
