@@ -6,6 +6,10 @@ NeighborhoodExplorer 是一个 Python 命令行工具，可从 GenBank 注释文
 `locus_tag` 或 `gene` 名称查找目标 CDS，提取其上下游基因邻域，并生成 TSV
 数据表和可交互的 HTML 基因结构图。
 
+## 许可证
+
+本项目使用 [MIT 许可证](LICENSE)。
+
 ## 功能
 
 - 使用 Biopython 解析 GenBank 文件中的 CDS 特征。
